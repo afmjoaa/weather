@@ -1,4 +1,4 @@
-name: weather
+name: Weather
 description: New sample weather flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -17,9 +17,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  flutter_launcher_icons: ^0.9.0
 
 flutter:
   uses-material-design: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: assets/launcher_icon/launcher_icon.png
+  image_path_ios: assets/launcher_icon/launcher_icon.png
+
+  assets:
+    - assets/launcher_icon/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
