@@ -1,14 +1,19 @@
-import 'package:Weather/Screens/City_Screen.dart';
-import 'package:Weather/Screens/Menu_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
-class ControllScreen extends StatefulWidget {
+import '../widgets/dashboard_widget.dart';
+import '../widgets/menu_widget.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String path = '/';
+
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
-  _ControllScreenState createState() => _ControllScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _ControllScreenState extends State<ControllScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   final drawerController = ZoomDrawerController();
   @override
   Widget build(BuildContext context) {
@@ -16,8 +21,8 @@ class _ControllScreenState extends State<ControllScreen> {
       body: ZoomDrawer(
         controller: drawerController,
         style: DrawerStyle.Style1,
-        menuScreen: MenuScreen(),
-        mainScreen: CityScreen(
+        menuScreen: const MenuWidget(),
+        mainScreen: DashBoardWidget(
           zoomDrawerController: drawerController,
         ),
         borderRadius: 24.0,
