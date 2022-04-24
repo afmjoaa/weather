@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/sunny_appbar.dart';
+import '../../shared/sunny_appbar.dart';
 
 class AboutScreen extends StatelessWidget {
   static const String path = '/about_screen';

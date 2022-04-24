@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import '../../../core/sunny_provider.dart';
+import '../../../../core/sunny_provider.dart';
 
-import '../shared/loading/loading_widget.dart';
-import '../widgets/dashboard_widget.dart';
-import '../widgets/menu_widget.dart';
+import '../../shared/loading/loading_widget.dart';
+import 'widgets/dashboard_widget.dart';
+import 'widgets/menu_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String path = '/home';

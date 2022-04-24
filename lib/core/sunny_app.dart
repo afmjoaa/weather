@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ui/screens/home_screen.dart';
+import '../ui/screens/home/home_screen.dart';
 import '../core/sunny_application.dart';
 import '../ui/shared/loading/loading_cubit.dart';
 import 'sunny_provider.dart';

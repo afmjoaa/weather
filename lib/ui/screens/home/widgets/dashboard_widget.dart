@@ -1,8 +1,8 @@
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 
-import '../../entities/weather_element_entity.dart';
-import 'sunny_appbar.dart';
+import '../../../../entities/weather_element_entity.dart';
+import '../../../shared/sunny_appbar.dart';
 import 'comfort_level_widget.dart';
 import 'city_info_widget.dart';
 import 'sunrise_and_sunset_widget.dart';

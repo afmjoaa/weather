@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../screens/about_screen.dart';
+import '../../about/about_screen.dart';
 
 class MenuWidget extends StatelessWidget {
   const MenuWidget({Key? key}) : super(key: key);
@@ -24,21 +24,24 @@ class MenuWidget extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        'assets/icons/theme.svg',
+                      SizedBox(
                         height: 20,
                         width: 20,
-                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          'assets/icons/theme.svg',
+                          fit: BoxFit.contain,
+                          alignment: Alignment.center,
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.only(
                           left: 15,
                         ),
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.centerLeft,
                         child: const Text(
                           'Dark',
                           style: TextStyle(
-                            height: 1.3,
+                            height: 1.5,
                             fontSize: 20,
                           ),
                         ),
@@ -61,19 +64,22 @@ class MenuWidget extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SvgPicture.asset(
-                        'assets/icons/about.svg',
+                      SizedBox(
                         height: 20,
                         width: 20,
-                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          'assets/icons/about.svg',
+                          fit: BoxFit.contain,
+                          alignment: Alignment.center,
+                        ),
                       ),
                       Container(
                         margin: const EdgeInsets.only(left: 15),
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.centerLeft,
                         child: const Text(
                           'About',
                           style: TextStyle(
-                            height: 1.3,
+                            height: 1.5,
                             fontSize: 20,
                           ),
                         ),

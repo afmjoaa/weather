@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Screens/about_screen.dart';
-import '../Screens/home_screen.dart';
+import '../ui/Screens/about/about_screen.dart';
+import '../ui/Screens/home/home_screen.dart';
 
 class SunnyRoutes {
   static Map<String, WidgetBuilder> configureRoutes() {
