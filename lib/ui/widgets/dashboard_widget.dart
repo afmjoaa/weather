@@ -1,7 +1,7 @@
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 
-import '../entities/weather_element_entity.dart';
+import '../../entities/weather_element_entity.dart';
 import 'sunny_appbar.dart';
 import 'comfort_level_widget.dart';
 import 'city_info_widget.dart';
@@ -31,11 +31,18 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      displacement: 64,
+      color: const Color(0xff836eff),
       onRefresh: _pullRefresh,
       child: Scaffold(
         body: ListView(
           children: [
-            SunnyAppBar(zoomDrawerController: widget.zoomDrawerController),
+            SunnyAppBar(
+              onTabCallback: ()=>
+                widget.zoomDrawerController.toggle?.call(),
+              assetLocation: 'assets/icons/menu.svg',
+              title: 'Sunny',
+            ),
             const CityInfoWidget(),
             const WeatherInfoWidget(),
             WeatherElementWidget(

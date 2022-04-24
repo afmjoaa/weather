@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../screens/home_screen.dart';
+import '../ui/screens/home_screen.dart';
 import '../core/sunny_application.dart';
-import '../shared/loading/loading_cubit.dart';
+import '../ui/shared/loading/loading_cubit.dart';
 import 'sunny_provider.dart';
 
 class SunnyApp extends StatelessWidget {

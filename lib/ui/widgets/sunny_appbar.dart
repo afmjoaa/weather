@@ -3,9 +3,17 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SunnyAppBar extends StatelessWidget {
-  final ZoomDrawerController zoomDrawerController;
+  final VoidCallback onTabCallback;
+  final String assetLocation;
+  final String title;
+  final String? tooltip;
 
-  const SunnyAppBar({required this.zoomDrawerController, Key? key}) : super(key: key);
+  const SunnyAppBar({
+    required this.assetLocation,
+    required this.title,
+    required this.onTabCallback,
+    this.tooltip,
+    Key? key, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +25,20 @@ class SunnyAppBar extends StatelessWidget {
           IconButton(
             alignment: Alignment.centerLeft,
             icon: SvgPicture.asset(
-              'assets/icons/menu.svg',
+              assetLocation,
               fit: BoxFit.contain,
               alignment: Alignment.centerLeft,
               height: 24,
               width: 24,
             ),
-            tooltip: 'Toggle Appbar menu',
+            tooltip: tooltip ?? 'Toggle Appbar menu',
             onPressed: () {
-              zoomDrawerController.toggle?.call();
+              onTabCallback.call();
             },
           ),
           const SizedBox(width: 40),
-          const Text('Sunny',
-            style: TextStyle(
+          Text( title,
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600
             ),

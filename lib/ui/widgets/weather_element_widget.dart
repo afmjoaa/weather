@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../entities/weather_element_entity.dart';
+import '../../entities/weather_element_entity.dart';
 
 class WeatherElementWidget extends StatelessWidget {
   final List<WeatherElementEntity> itemList;

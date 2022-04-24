@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'sunny_application.dart';
-import '../shared/loading/loading_cubit.dart';
+import '../ui/shared/loading/loading_cubit.dart';
 
 class SunnyProvider extends InheritedWidget {
 
