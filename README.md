@@ -19,6 +19,11 @@ All the dev dependencies used in the project is listed below:
 | [sleek_circular_slider][SCS] |
 | [r_dotted_line_border][RDL] |
 | [flutter_zoom_drawer][FZD] |
+| [logging][LG] |
+| [freezed_annotation][FA] |
+| [bloc][BLC] |
+| [flutter_bloc][FBLC] |
+| [provider][PV] |
 
 ## License
 
@@ -31,3 +36,7 @@ MIT\
 [SCS]: <https://pub.dev/packages/sleek_circular_slider>
 [RDL]: <https://pub.dev/packages/r_dotted_line_border>
 [FZD]: <https://pub.dev/packages/flutter_zoom_drawer>
+[LG]: <https://pub.dev/packages/logging>
+[BLC]: <https://pub.dev/packages/bloc>
+[FBLC]: <https://pub.dev/packages/flutter_bloc>
+[PV]: <https://pub.dev/packages/provider>

@@ -10,8 +10,9 @@ part 'loading_state.freezed.dart';
 )
 class LoadingState with _$LoadingState{
   const factory LoadingState.initialLoadingState() = InitialLoadingState;
-  const factory LoadingState.loadingCompletedState() = LoadingCompletedState;
+  const factory LoadingState.loadingStartedState() = LoadingStartedState;
   const factory LoadingState.loadingFailedState(String errorMessage) = LoadingFailedState;
-  const factory LoadingState.loadingSuccessState(String successMessage) = LoadingSuccessState;
+  const factory LoadingState.loadingSuccessState() = LoadingSuccessState;
+  const factory LoadingState.loadingCompletedState() = LoadingCompletedState;
 
 }

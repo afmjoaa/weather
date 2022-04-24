@@ -19,18 +19,20 @@ mixin _$LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialLoadingState,
-    required TResult Function() loadingCompletedState,
+    required TResult Function() loadingStartedState,
     required TResult Function(String errorMessage) loadingFailedState,
-    required TResult Function(String successMessage) loadingSuccessState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialLoadingState,
-    TResult Function()? loadingCompletedState,
+    TResult Function()? loadingStartedState,
     TResult Function(String errorMessage)? loadingFailedState,
-    TResult Function(String successMessage)? loadingSuccessState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,9 +52,10 @@ class _$InitialLoadingState implements InitialLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialLoadingState,
-    required TResult Function() loadingCompletedState,
+    required TResult Function() loadingStartedState,
     required TResult Function(String errorMessage) loadingFailedState,
-    required TResult Function(String successMessage) loadingSuccessState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
   }) {
     return initialLoadingState();
   }
@@ -61,9 +64,10 @@ class _$InitialLoadingState implements InitialLoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialLoadingState,
-    TResult Function()? loadingCompletedState,
+    TResult Function()? loadingStartedState,
     TResult Function(String errorMessage)? loadingFailedState,
-    TResult Function(String successMessage)? loadingSuccessState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
     required TResult orElse(),
   }) {
     if (initialLoadingState != null) {
@@ -79,43 +83,45 @@ abstract class InitialLoadingState implements LoadingState {
 
 /// @nodoc
 
-class _$LoadingCompletedState implements LoadingCompletedState {
-  const _$LoadingCompletedState();
+class _$LoadingStartedState implements LoadingStartedState {
+  const _$LoadingStartedState();
 
   @override
   String toString() {
-    return 'LoadingState.loadingCompletedState()';
+    return 'LoadingState.loadingStartedState()';
   }
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialLoadingState,
-    required TResult Function() loadingCompletedState,
+    required TResult Function() loadingStartedState,
     required TResult Function(String errorMessage) loadingFailedState,
-    required TResult Function(String successMessage) loadingSuccessState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
   }) {
-    return loadingCompletedState();
+    return loadingStartedState();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialLoadingState,
-    TResult Function()? loadingCompletedState,
+    TResult Function()? loadingStartedState,
     TResult Function(String errorMessage)? loadingFailedState,
-    TResult Function(String successMessage)? loadingSuccessState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
     required TResult orElse(),
   }) {
-    if (loadingCompletedState != null) {
-      return loadingCompletedState();
+    if (loadingStartedState != null) {
+      return loadingStartedState();
     }
     return orElse();
   }
 }
 
-abstract class LoadingCompletedState implements LoadingState {
-  const factory LoadingCompletedState() = _$LoadingCompletedState;
+abstract class LoadingStartedState implements LoadingState {
+  const factory LoadingStartedState() = _$LoadingStartedState;
 }
 
 /// @nodoc
@@ -135,9 +141,10 @@ class _$LoadingFailedState implements LoadingFailedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialLoadingState,
-    required TResult Function() loadingCompletedState,
+    required TResult Function() loadingStartedState,
     required TResult Function(String errorMessage) loadingFailedState,
-    required TResult Function(String successMessage) loadingSuccessState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
   }) {
     return loadingFailedState(errorMessage);
   }
@@ -146,9 +153,10 @@ class _$LoadingFailedState implements LoadingFailedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialLoadingState,
-    TResult Function()? loadingCompletedState,
+    TResult Function()? loadingStartedState,
     TResult Function(String errorMessage)? loadingFailedState,
-    TResult Function(String successMessage)? loadingSuccessState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
     required TResult orElse(),
   }) {
     if (loadingFailedState != null) {
@@ -168,46 +176,85 @@ abstract class LoadingFailedState implements LoadingState {
 /// @nodoc
 
 class _$LoadingSuccessState implements LoadingSuccessState {
-  const _$LoadingSuccessState(this.successMessage);
-
-  @override
-  final String successMessage;
+  const _$LoadingSuccessState();
 
   @override
   String toString() {
-    return 'LoadingState.loadingSuccessState(successMessage: $successMessage)';
+    return 'LoadingState.loadingSuccessState()';
   }
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialLoadingState,
-    required TResult Function() loadingCompletedState,
+    required TResult Function() loadingStartedState,
     required TResult Function(String errorMessage) loadingFailedState,
-    required TResult Function(String successMessage) loadingSuccessState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
   }) {
-    return loadingSuccessState(successMessage);
+    return loadingSuccessState();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialLoadingState,
-    TResult Function()? loadingCompletedState,
+    TResult Function()? loadingStartedState,
     TResult Function(String errorMessage)? loadingFailedState,
-    TResult Function(String successMessage)? loadingSuccessState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
     required TResult orElse(),
   }) {
     if (loadingSuccessState != null) {
-      return loadingSuccessState(successMessage);
+      return loadingSuccessState();
     }
     return orElse();
   }
 }
 
 abstract class LoadingSuccessState implements LoadingState {
-  const factory LoadingSuccessState(final String successMessage) =
-      _$LoadingSuccessState;
+  const factory LoadingSuccessState() = _$LoadingSuccessState;
+}
 
-  String get successMessage => throw _privateConstructorUsedError;
+/// @nodoc
+
+class _$LoadingCompletedState implements LoadingCompletedState {
+  const _$LoadingCompletedState();
+
+  @override
+  String toString() {
+    return 'LoadingState.loadingCompletedState()';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialLoadingState,
+    required TResult Function() loadingStartedState,
+    required TResult Function(String errorMessage) loadingFailedState,
+    required TResult Function() loadingSuccessState,
+    required TResult Function() loadingCompletedState,
+  }) {
+    return loadingCompletedState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialLoadingState,
+    TResult Function()? loadingStartedState,
+    TResult Function(String errorMessage)? loadingFailedState,
+    TResult Function()? loadingSuccessState,
+    TResult Function()? loadingCompletedState,
+    required TResult orElse(),
+  }) {
+    if (loadingCompletedState != null) {
+      return loadingCompletedState();
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadingCompletedState implements LoadingState {
+  const factory LoadingCompletedState() = _$LoadingCompletedState;
 }

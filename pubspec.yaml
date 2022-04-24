@@ -21,6 +21,7 @@ dependencies:
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
   provider: ^6.0.2
+  flare_flutter: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,7 @@ flutter:
     - assets/launcher_icon/launcher_icon.png
     - assets/weathers/
     - assets/icons/
+    - assets/loading_anim_orange.flr
 
   fonts:
     - family: MohrRounded
