@@ -5,6 +5,11 @@ class Log{
   static late Logger _instance;
 
   static void init(){
+    Logger.root.onRecord.listen((record) {
+      record.error == null ?
+      print('${record.level.name}: ${record.time}: ${record.message}'):
+      print('${record.level.name}: ${record.time}: ${record.message} :${record.error} :${record.stackTrace}');
+    });
     _instance = Logger(_name);
   }
 
