@@ -5,7 +5,7 @@ import '../widgets/dashboard_widget.dart';
 import '../widgets/menu_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const String path = '/';
+  static const String path = '/home';
 
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         borderRadius: 24.0,
         disableGesture: false,
+        mainScreenTapClose: true,
         showShadow: true,
         angle: -10.0,
         backgroundColor: Colors.black12,

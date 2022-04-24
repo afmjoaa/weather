@@ -1,6 +1,17 @@
-part of 'loading_cubit.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-abstract class LoadingState {}
+part 'loading_state.freezed.dart';
 
-class LoadingInitial extends LoadingState {}
+@Freezed(
+  copyWith: false,
+  equal: false,
+  map: FreezedMapOptions(map: false, mapOrNull: false, maybeMap: false),
+  when: FreezedWhenOptions(when: true, whenOrNull: false, maybeWhen: true)
+)
+class LoadingState with _$LoadingState{
+  const factory LoadingState.initialLoadingState() = InitialLoadingState;
+  const factory LoadingState.loadingCompletedState() = LoadingCompletedState;
+  const factory LoadingState.loadingFailedState(String errorMessage) = LoadingFailedState;
+  const factory LoadingState.loadingSuccessState(String successMessage) = LoadingSuccessState;
+
+}

@@ -5,6 +5,7 @@ import 'application.dart';
 import '../utility/log.dart';
 
 class SunnyApplication implements Application {
+
   //Any storage that is needed through out the app
   late Map<String, WidgetBuilder> routes;
 

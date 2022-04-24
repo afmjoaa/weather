@@ -1,7 +1,8 @@
-import '../screens/home_screen.dart';
-import 'package:Weather/core/sunny_application.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/home_screen.dart';
+import '../core/sunny_application.dart';
+import '../shared/loading/loading_cubit.dart';
 import 'sunny_provider.dart';
 
 class SunnyApp extends StatelessWidget {
@@ -23,6 +24,7 @@ class SunnyApp extends StatelessWidget {
     );
 
     final appProvider = SunnyProvider(_application, app);
+    SunnyProvider.loadingCubit = LoadingCubit();
     return appProvider;
   }
 }

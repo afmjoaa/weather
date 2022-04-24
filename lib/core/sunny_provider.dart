@@ -1,9 +1,12 @@
-import 'package:Weather/core/sunny_application.dart';
 import 'package:flutter/material.dart';
+
+import 'sunny_application.dart';
+import '../shared/loading/loading_cubit.dart';
 
 class SunnyProvider extends InheritedWidget {
 
   static late SunnyApplication appInstance;
+  static late LoadingCubit loadingCubit;
 
   final SunnyApplication application;
 
