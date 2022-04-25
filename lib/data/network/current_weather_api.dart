@@ -10,14 +10,19 @@ import 'base_api.dart';
 class CurrentWeatherApi extends BaseApi<
     CurrentWeatherQueryParams,
     CurrentWeatherResponse,
-ErrorResponse
+    ErrorResponse
 > {
 
   CurrentWeatherApi()
       : super(SunnyApiProvider.currentWeather, sl<SunnyApiProvider>());
 
   @override
-  BaseModel mapResponse(Map<String, dynamic>? responseJson) {
+  BaseModel mapErrorResponse(Map<String, dynamic>? errorJson) {
+    return ErrorResponse.fromJson(errorJson!);
+  }
+
+  @override
+  BaseModel mapSuccessResponse(Map<String, dynamic>? responseJson) {
     return CurrentWeatherResponse.fromJson(responseJson!);
   }
 

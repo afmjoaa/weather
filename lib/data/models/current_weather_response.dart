@@ -170,7 +170,7 @@ class CloudsResponseModel with _$CloudsResponseModel {
 class SysResponseModel with _$SysResponseModel {
   const SysResponseModel._();
   const factory SysResponseModel(
-      String country,
+      String? country,
       int sunrise,
       int sunset,
       ) = _SysResponseModel;

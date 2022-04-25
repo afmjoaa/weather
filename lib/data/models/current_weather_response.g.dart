@@ -126,7 +126,7 @@ Map<String, dynamic> _$$_CloudsResponseModelToJson(
 
 _$_SysResponseModel _$$_SysResponseModelFromJson(Map<String, dynamic> json) =>
     _$_SysResponseModel(
-      json['country'] as String,
+      json['country'] as String?,
       json['sunrise'] as int,
       json['sunset'] as int,
     );

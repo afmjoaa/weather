@@ -27,28 +27,19 @@ abstract class BaseApi<TQuery extends BaseModel, TRes extends BaseModel, TErr ex
   }
 
   Future<Either<TRes, TErr>> get({Map<String, String>? headers, Map<String, dynamic>? queryParameters}) async {
+
     try {
       Response<Map<String, dynamic>> response = await getRaw(headers: headers, queryParameters: queryParameters);
-
-      return Left(mapResponse(response.data) as TRes);
-    } catch (err) {
-      return Right(generate(err) as TErr);
+      return Left(mapSuccessResponse(response.data) as TRes);
+    } on DioError catch (err) {
+      print('foofoo $err');
+      if (err.response != null && err.response!.data != null) {
+        return Right(mapErrorResponse(err.response!.data) as TErr);
+      }
+      return Right(mapErrorResponse({"cod":9999, "message": "Internal Network error"}) as TErr);
     }
   }
 
-
-  BaseModel generate(dynamic error) {
-    BaseModel baseError ;
-      if (error.type == DioErrorType.receiveTimeout
-          || error.type == DioErrorType.connectTimeout
-          || error.type == DioErrorType.sendTimeout){
-        baseError = mapResponse({'cod': "9999", 'message': error.message});
-      } else {
-        baseError = mapResponse(error.response?.data as Map<String, dynamic>?);
-      }
-
-    return baseError;
-  }
-
-  BaseModel mapResponse(Map<String, dynamic>? responseJson);
+  BaseModel mapSuccessResponse(Map<String, dynamic>? responseJson);
+  BaseModel mapErrorResponse(Map<String, dynamic>? errorJson);
 }

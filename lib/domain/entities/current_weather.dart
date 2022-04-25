@@ -73,7 +73,7 @@ class Sys {
     required this.sunset,
   });
 
-  final String country;
+  final String? country;
   final int sunrise;
   final int sunset;
 }

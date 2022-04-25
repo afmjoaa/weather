@@ -1,6 +1,15 @@
-part of 'home_cubit.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@immutable
-abstract class HomeState {}
+part 'home_state.freezed.dart';
 
-class HomeInitial extends HomeState {}
+@Freezed(
+    copyWith: false,
+    equal: false,
+    map: FreezedMapOptions(map: false, mapOrNull: false, maybeMap: false),
+    when: FreezedWhenOptions(when: true, whenOrNull: false, maybeWhen: true)
+)
+class HomeState with _$HomeState{
+  const factory HomeState.homeInitialState() = HomeInitialState;
+  const factory HomeState.fetchDataState() = FetchDataState;
+
+}

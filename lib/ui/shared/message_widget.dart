@@ -48,7 +48,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                   bottomLeft: Radius.circular(30),
                 ),
               ),
-              padding: const EdgeInsets.only(left: 16, top: 4, bottom: 4),
+              padding: const EdgeInsets.only(left: 16, top: 10, bottom: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

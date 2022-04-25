@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:weather/ui/screens/home/cubit/home_cubit.dart';
 import '../../../../core/sunny_provider.dart';
 
 import '../../shared/loading/loading_widget.dart';
@@ -17,11 +18,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final drawerController = ZoomDrawerController();
+  late final HomeCubit _homeCubit;
+
 
   @override
   void initState() {
     super.initState();
-    SunnyProvider.loadingCubit.loadingFailed('some random error');
+    _homeCubit = HomeCubit();
+    _homeCubit.getCurrentWeather();
   }
 
   @override

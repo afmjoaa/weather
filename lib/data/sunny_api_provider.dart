@@ -9,13 +9,10 @@ import 'package:weather/utility/sunny_texts.dart';
 import 'models/error_response.dart';
 
 class SunnyApiProvider extends BaseApiProvider{
-  late String _apiBaseURL;
 
   SunnyApiProvider() {
     BaseOptions options = createBaseOptions();
     dio = Dio(options);
-
-    _apiBaseURL = dio.options.baseUrl;
 
     dio.interceptors.add(logInterceptor);
     dio.interceptors.add(getLoadingInterceptor());
@@ -35,7 +32,7 @@ class SunnyApiProvider extends BaseApiProvider{
       handler.next(response); // continue
     },
     onError: (DioError error, ErrorInterceptorHandler handler) async {
-      String errorMessage = SunnyTexts().get()['global.anErrorOccurred'];
+      String errorMessage = SunnyTexts.get()['anErrorOccurred'];
 
       if (error.response != null && error.response!.data != null) {
         var errorResponse = ErrorResponse.fromJson(error.response!.data);
@@ -66,12 +63,12 @@ class SunnyApiProvider extends BaseApiProvider{
     try {
       final result = await InternetAddress.lookup('example.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-        return SunnyTexts().get()['noOrSlowInternetConnection'];
+        return SunnyTexts.get()['noOrSlowInternetConnection'];
       }
     } on SocketException catch (_) {
-      return SunnyTexts().get()['global.networkConnectivityError'];
+      return SunnyTexts.get()['networkConnectivityError'];
     }
-    return SunnyTexts().get()['global.anErrorOccurred'];
+    return SunnyTexts.get()['anErrorOccurred'];
   }
 
   BaseOptions createBaseOptions() {

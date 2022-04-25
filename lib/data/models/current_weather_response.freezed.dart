@@ -441,7 +441,7 @@ SysResponseModel _$SysResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SysResponseModel {
-  String get country => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
   int get sunrise => throw _privateConstructorUsedError;
   int get sunset => throw _privateConstructorUsedError;
 
@@ -458,7 +458,7 @@ class _$_SysResponseModel extends _SysResponseModel {
       _$$_SysResponseModelFromJson(json);
 
   @override
-  final String country;
+  final String? country;
   @override
   final int sunrise;
   @override
@@ -477,7 +477,7 @@ class _$_SysResponseModel extends _SysResponseModel {
 
 abstract class _SysResponseModel extends SysResponseModel {
   const factory _SysResponseModel(
-          final String country, final int sunrise, final int sunset) =
+          final String? country, final int sunrise, final int sunset) =
       _$_SysResponseModel;
   const _SysResponseModel._() : super._();
 
@@ -485,7 +485,7 @@ abstract class _SysResponseModel extends SysResponseModel {
       _$_SysResponseModel.fromJson;
 
   @override
-  String get country => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
   @override
   int get sunrise => throw _privateConstructorUsedError;
   @override
