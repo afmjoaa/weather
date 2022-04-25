@@ -19,11 +19,11 @@ class CurrentWeatherRepositoryImpl implements CurrentWeatherRepository {
     Either<CurrentWeatherResponse, ErrorResponse> _response =
         await _currentWeatherRemoteDataSource.getCurrentWeather(lat, lon);
 
-    var result = _response.fold((apiResponse) async {
-        return apiResponse.toEntity();
-      }, (error) => null);
+    // var result = _response.fold((apiResponse) async {
+    //     return apiResponse.toEntity();
+    //   }, (error) => null);
 
-    return result;
+    return null;
   }
 
 }

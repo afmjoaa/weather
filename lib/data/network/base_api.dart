@@ -32,11 +32,10 @@ abstract class BaseApi<TQuery extends BaseModel, TRes extends BaseModel, TErr ex
       Response<Map<String, dynamic>> response = await getRaw(headers: headers, queryParameters: queryParameters);
       return Left(mapSuccessResponse(response.data) as TRes);
     } on DioError catch (err) {
-      print('foofoo $err');
       if (err.response != null && err.response!.data != null) {
         return Right(mapErrorResponse(err.response!.data) as TErr);
       }
-      return Right(mapErrorResponse({"cod":9999, "message": "Internal Network error"}) as TErr);
+      return Right(mapErrorResponse({"cod":9999, "message": "Internal network error"}) as TErr);
     }
   }
 
