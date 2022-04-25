@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../entities/weather_element_entity.dart';
+import '../../../../dto/weather_element_dto.dart';
 
 class WeatherElementWidget extends StatelessWidget {
-  final List<WeatherElementEntity> itemList;
+  final List<WeatherElementDto> itemList;
 
   const WeatherElementWidget(this.itemList, {Key? key}) : super(key: key);
 

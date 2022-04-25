@@ -1,7 +1,7 @@
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../entities/weather_element_entity.dart';
+import '../../../../dto/weather_element_dto.dart';
 import '../../../shared/sunny_appbar.dart';
 import 'comfort_level_widget.dart';
 import 'city_info_widget.dart';
@@ -47,9 +47,9 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
             const WeatherInfoWidget(),
             WeatherElementWidget(
                 [
-                  WeatherElementEntity('assets/icons/ventos.svg', '100'),
-                  WeatherElementEntity('assets/icons/nuvem.svg', '100'),
-                  WeatherElementEntity('assets/icons/umidade.svg', '100')
+                  WeatherElementDto('assets/icons/ventos.svg', '100'),
+                  WeatherElementDto('assets/icons/nuvem.svg', '100'),
+                  WeatherElementDto('assets/icons/umidade.svg', '100')
                 ]
             ),
             const SunriseAndSunsetWidget(),

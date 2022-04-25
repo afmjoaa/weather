@@ -40,11 +40,6 @@ class _$_ErrorResponse implements _ErrorResponse {
   final String message;
 
   @override
-  String toString() {
-    return 'ErrorResponse(cod: $cod, message: $message)';
-  }
-
-  @override
   Map<String, dynamic> toJson() {
     return _$$_ErrorResponseToJson(this);
   }

@@ -25,22 +25,22 @@ mixin _$CurrentWeatherResponse {
   List<WeatherResponseModel> get weather => throw _privateConstructorUsedError;
   String get base => throw _privateConstructorUsedError;
   MainResponseModel get main => throw _privateConstructorUsedError;
-  String get visibility => throw _privateConstructorUsedError;
+  int get visibility => throw _privateConstructorUsedError;
   WindResponseModel get wind => throw _privateConstructorUsedError;
   CloudsResponseModel get clouds => throw _privateConstructorUsedError;
-  String get dt => throw _privateConstructorUsedError;
+  int get dt => throw _privateConstructorUsedError;
   SysResponseModel get sys => throw _privateConstructorUsedError;
-  String get timezone => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  int get timezone => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get cod => throw _privateConstructorUsedError;
+  int get cod => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_CurrentWeatherResponse implements _CurrentWeatherResponse {
+class _$_CurrentWeatherResponse extends _CurrentWeatherResponse {
   const _$_CurrentWeatherResponse(
       this.coord,
       final List<WeatherResponseModel> weather,
@@ -55,7 +55,8 @@ class _$_CurrentWeatherResponse implements _CurrentWeatherResponse {
       this.id,
       this.name,
       this.cod)
-      : _weather = weather;
+      : _weather = weather,
+        super._();
 
   factory _$_CurrentWeatherResponse.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentWeatherResponseFromJson(json);
@@ -74,23 +75,23 @@ class _$_CurrentWeatherResponse implements _CurrentWeatherResponse {
   @override
   final MainResponseModel main;
   @override
-  final String visibility;
+  final int visibility;
   @override
   final WindResponseModel wind;
   @override
   final CloudsResponseModel clouds;
   @override
-  final String dt;
+  final int dt;
   @override
   final SysResponseModel sys;
   @override
-  final String timezone;
+  final int timezone;
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
-  final String cod;
+  final int cod;
 
   @override
   Map<String, dynamic> toJson() {
@@ -98,21 +99,22 @@ class _$_CurrentWeatherResponse implements _CurrentWeatherResponse {
   }
 }
 
-abstract class _CurrentWeatherResponse implements CurrentWeatherResponse {
+abstract class _CurrentWeatherResponse extends CurrentWeatherResponse {
   const factory _CurrentWeatherResponse(
       final CoordResponseModel coord,
       final List<WeatherResponseModel> weather,
       final String base,
       final MainResponseModel main,
-      final String visibility,
+      final int visibility,
       final WindResponseModel wind,
       final CloudsResponseModel clouds,
-      final String dt,
+      final int dt,
       final SysResponseModel sys,
-      final String timezone,
-      final String id,
+      final int timezone,
+      final int id,
       final String name,
-      final String cod) = _$_CurrentWeatherResponse;
+      final int cod) = _$_CurrentWeatherResponse;
+  const _CurrentWeatherResponse._() : super._();
 
   factory _CurrentWeatherResponse.fromJson(Map<String, dynamic> json) =
       _$_CurrentWeatherResponse.fromJson;
@@ -126,23 +128,23 @@ abstract class _CurrentWeatherResponse implements CurrentWeatherResponse {
   @override
   MainResponseModel get main => throw _privateConstructorUsedError;
   @override
-  String get visibility => throw _privateConstructorUsedError;
+  int get visibility => throw _privateConstructorUsedError;
   @override
   WindResponseModel get wind => throw _privateConstructorUsedError;
   @override
   CloudsResponseModel get clouds => throw _privateConstructorUsedError;
   @override
-  String get dt => throw _privateConstructorUsedError;
+  int get dt => throw _privateConstructorUsedError;
   @override
   SysResponseModel get sys => throw _privateConstructorUsedError;
   @override
-  String get timezone => throw _privateConstructorUsedError;
+  int get timezone => throw _privateConstructorUsedError;
   @override
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  String get cod => throw _privateConstructorUsedError;
+  int get cod => throw _privateConstructorUsedError;
 }
 
 CoordResponseModel _$CoordResponseModelFromJson(Map<String, dynamic> json) {
@@ -151,24 +153,24 @@ CoordResponseModel _$CoordResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CoordResponseModel {
-  String get lon => throw _privateConstructorUsedError;
-  String get lat => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_CoordResponseModel implements _CoordResponseModel {
-  const _$_CoordResponseModel(this.lon, this.lat);
+class _$_CoordResponseModel extends _CoordResponseModel {
+  const _$_CoordResponseModel(this.lon, this.lat) : super._();
 
   factory _$_CoordResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CoordResponseModelFromJson(json);
 
   @override
-  final String lon;
+  final double lon;
   @override
-  final String lat;
+  final double lat;
 
   @override
   String toString() {
@@ -181,17 +183,18 @@ class _$_CoordResponseModel implements _CoordResponseModel {
   }
 }
 
-abstract class _CoordResponseModel implements CoordResponseModel {
-  const factory _CoordResponseModel(final String lon, final String lat) =
+abstract class _CoordResponseModel extends CoordResponseModel {
+  const factory _CoordResponseModel(final double lon, final double lat) =
       _$_CoordResponseModel;
+  const _CoordResponseModel._() : super._();
 
   factory _CoordResponseModel.fromJson(Map<String, dynamic> json) =
       _$_CoordResponseModel.fromJson;
 
   @override
-  String get lon => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
   @override
-  String get lat => throw _privateConstructorUsedError;
+  double get lat => throw _privateConstructorUsedError;
 }
 
 WeatherResponseModel _$WeatherResponseModelFromJson(Map<String, dynamic> json) {
@@ -200,7 +203,7 @@ WeatherResponseModel _$WeatherResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WeatherResponseModel {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get main => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get icon => throw _privateConstructorUsedError;
@@ -210,15 +213,15 @@ mixin _$WeatherResponseModel {
 
 /// @nodoc
 @JsonSerializable()
-class _$_WeatherResponseModel implements _WeatherResponseModel {
-  const _$_WeatherResponseModel(
-      this.id, this.main, this.description, this.icon);
+class _$_WeatherResponseModel extends _WeatherResponseModel {
+  const _$_WeatherResponseModel(this.id, this.main, this.description, this.icon)
+      : super._();
 
   factory _$_WeatherResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_WeatherResponseModelFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String main;
   @override
@@ -237,15 +240,16 @@ class _$_WeatherResponseModel implements _WeatherResponseModel {
   }
 }
 
-abstract class _WeatherResponseModel implements WeatherResponseModel {
-  const factory _WeatherResponseModel(final String id, final String main,
+abstract class _WeatherResponseModel extends WeatherResponseModel {
+  const factory _WeatherResponseModel(final int id, final String main,
       final String description, final String icon) = _$_WeatherResponseModel;
+  const _WeatherResponseModel._() : super._();
 
   factory _WeatherResponseModel.fromJson(Map<String, dynamic> json) =
       _$_WeatherResponseModel.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   @override
   String get main => throw _privateConstructorUsedError;
   @override
@@ -260,54 +264,42 @@ MainResponseModel _$MainResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MainResponseModel {
-  String get temp => throw _privateConstructorUsedError;
-  String get feels_like => throw _privateConstructorUsedError;
-  String get temp_min => throw _privateConstructorUsedError;
-  String get temp_max => throw _privateConstructorUsedError;
-  String get pressure => throw _privateConstructorUsedError;
-  String get humidity => throw _privateConstructorUsedError;
-  String get sea_level => throw _privateConstructorUsedError;
-  String get grnd_level => throw _privateConstructorUsedError;
+  double get temp => throw _privateConstructorUsedError;
+  double get feels_like => throw _privateConstructorUsedError;
+  double get temp_min => throw _privateConstructorUsedError;
+  double get temp_max => throw _privateConstructorUsedError;
+  double get pressure => throw _privateConstructorUsedError;
+  double get humidity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_MainResponseModel implements _MainResponseModel {
-  const _$_MainResponseModel(
-      this.temp,
-      this.feels_like,
-      this.temp_min,
-      this.temp_max,
-      this.pressure,
-      this.humidity,
-      this.sea_level,
-      this.grnd_level);
+class _$_MainResponseModel extends _MainResponseModel {
+  const _$_MainResponseModel(this.temp, this.feels_like, this.temp_min,
+      this.temp_max, this.pressure, this.humidity)
+      : super._();
 
   factory _$_MainResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_MainResponseModelFromJson(json);
 
   @override
-  final String temp;
+  final double temp;
   @override
-  final String feels_like;
+  final double feels_like;
   @override
-  final String temp_min;
+  final double temp_min;
   @override
-  final String temp_max;
+  final double temp_max;
   @override
-  final String pressure;
+  final double pressure;
   @override
-  final String humidity;
-  @override
-  final String sea_level;
-  @override
-  final String grnd_level;
+  final double humidity;
 
   @override
   String toString() {
-    return 'MainResponseModel(temp: $temp, feels_like: $feels_like, temp_min: $temp_min, temp_max: $temp_max, pressure: $pressure, humidity: $humidity, sea_level: $sea_level, grnd_level: $grnd_level)';
+    return 'MainResponseModel(temp: $temp, feels_like: $feels_like, temp_min: $temp_min, temp_max: $temp_max, pressure: $pressure, humidity: $humidity)';
   }
 
   @override
@@ -316,36 +308,31 @@ class _$_MainResponseModel implements _MainResponseModel {
   }
 }
 
-abstract class _MainResponseModel implements MainResponseModel {
+abstract class _MainResponseModel extends MainResponseModel {
   const factory _MainResponseModel(
-      final String temp,
-      final String feels_like,
-      final String temp_min,
-      final String temp_max,
-      final String pressure,
-      final String humidity,
-      final String sea_level,
-      final String grnd_level) = _$_MainResponseModel;
+      final double temp,
+      final double feels_like,
+      final double temp_min,
+      final double temp_max,
+      final double pressure,
+      final double humidity) = _$_MainResponseModel;
+  const _MainResponseModel._() : super._();
 
   factory _MainResponseModel.fromJson(Map<String, dynamic> json) =
       _$_MainResponseModel.fromJson;
 
   @override
-  String get temp => throw _privateConstructorUsedError;
+  double get temp => throw _privateConstructorUsedError;
   @override
-  String get feels_like => throw _privateConstructorUsedError;
+  double get feels_like => throw _privateConstructorUsedError;
   @override
-  String get temp_min => throw _privateConstructorUsedError;
+  double get temp_min => throw _privateConstructorUsedError;
   @override
-  String get temp_max => throw _privateConstructorUsedError;
+  double get temp_max => throw _privateConstructorUsedError;
   @override
-  String get pressure => throw _privateConstructorUsedError;
+  double get pressure => throw _privateConstructorUsedError;
   @override
-  String get humidity => throw _privateConstructorUsedError;
-  @override
-  String get sea_level => throw _privateConstructorUsedError;
-  @override
-  String get grnd_level => throw _privateConstructorUsedError;
+  double get humidity => throw _privateConstructorUsedError;
 }
 
 WindResponseModel _$WindResponseModelFromJson(Map<String, dynamic> json) {
@@ -354,27 +341,27 @@ WindResponseModel _$WindResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$WindResponseModel {
-  String get speed => throw _privateConstructorUsedError;
-  String get deg => throw _privateConstructorUsedError;
-  String get gust => throw _privateConstructorUsedError;
+  double get speed => throw _privateConstructorUsedError;
+  double get deg => throw _privateConstructorUsedError;
+  double get gust => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_WindResponseModel implements _WindResponseModel {
-  const _$_WindResponseModel(this.speed, this.deg, this.gust);
+class _$_WindResponseModel extends _WindResponseModel {
+  const _$_WindResponseModel(this.speed, this.deg, this.gust) : super._();
 
   factory _$_WindResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_WindResponseModelFromJson(json);
 
   @override
-  final String speed;
+  final double speed;
   @override
-  final String deg;
+  final double deg;
   @override
-  final String gust;
+  final double gust;
 
   @override
   String toString() {
@@ -387,20 +374,21 @@ class _$_WindResponseModel implements _WindResponseModel {
   }
 }
 
-abstract class _WindResponseModel implements WindResponseModel {
+abstract class _WindResponseModel extends WindResponseModel {
   const factory _WindResponseModel(
-          final String speed, final String deg, final String gust) =
+          final double speed, final double deg, final double gust) =
       _$_WindResponseModel;
+  const _WindResponseModel._() : super._();
 
   factory _WindResponseModel.fromJson(Map<String, dynamic> json) =
       _$_WindResponseModel.fromJson;
 
   @override
-  String get speed => throw _privateConstructorUsedError;
+  double get speed => throw _privateConstructorUsedError;
   @override
-  String get deg => throw _privateConstructorUsedError;
+  double get deg => throw _privateConstructorUsedError;
   @override
-  String get gust => throw _privateConstructorUsedError;
+  double get gust => throw _privateConstructorUsedError;
 }
 
 CloudsResponseModel _$CloudsResponseModelFromJson(Map<String, dynamic> json) {
@@ -409,21 +397,21 @@ CloudsResponseModel _$CloudsResponseModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CloudsResponseModel {
-  String get all => throw _privateConstructorUsedError;
+  int get all => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_CloudsResponseModel implements _CloudsResponseModel {
-  const _$_CloudsResponseModel(this.all);
+class _$_CloudsResponseModel extends _CloudsResponseModel {
+  const _$_CloudsResponseModel(this.all) : super._();
 
   factory _$_CloudsResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CloudsResponseModelFromJson(json);
 
   @override
-  final String all;
+  final int all;
 
   @override
   String toString() {
@@ -436,14 +424,15 @@ class _$_CloudsResponseModel implements _CloudsResponseModel {
   }
 }
 
-abstract class _CloudsResponseModel implements CloudsResponseModel {
-  const factory _CloudsResponseModel(final String all) = _$_CloudsResponseModel;
+abstract class _CloudsResponseModel extends CloudsResponseModel {
+  const factory _CloudsResponseModel(final int all) = _$_CloudsResponseModel;
+  const _CloudsResponseModel._() : super._();
 
   factory _CloudsResponseModel.fromJson(Map<String, dynamic> json) =
       _$_CloudsResponseModel.fromJson;
 
   @override
-  String get all => throw _privateConstructorUsedError;
+  int get all => throw _privateConstructorUsedError;
 }
 
 SysResponseModel _$SysResponseModelFromJson(Map<String, dynamic> json) {
@@ -453,16 +442,17 @@ SysResponseModel _$SysResponseModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SysResponseModel {
   String get country => throw _privateConstructorUsedError;
-  String get sunrise => throw _privateConstructorUsedError;
-  String get sunset => throw _privateConstructorUsedError;
+  int get sunrise => throw _privateConstructorUsedError;
+  int get sunset => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_SysResponseModel implements _SysResponseModel {
-  const _$_SysResponseModel(this.country, this.sunrise, this.sunset);
+class _$_SysResponseModel extends _SysResponseModel {
+  const _$_SysResponseModel(this.country, this.sunrise, this.sunset)
+      : super._();
 
   factory _$_SysResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_SysResponseModelFromJson(json);
@@ -470,9 +460,9 @@ class _$_SysResponseModel implements _SysResponseModel {
   @override
   final String country;
   @override
-  final String sunrise;
+  final int sunrise;
   @override
-  final String sunset;
+  final int sunset;
 
   @override
   String toString() {
@@ -485,10 +475,11 @@ class _$_SysResponseModel implements _SysResponseModel {
   }
 }
 
-abstract class _SysResponseModel implements SysResponseModel {
+abstract class _SysResponseModel extends SysResponseModel {
   const factory _SysResponseModel(
-          final String country, final String sunrise, final String sunset) =
+          final String country, final int sunrise, final int sunset) =
       _$_SysResponseModel;
+  const _SysResponseModel._() : super._();
 
   factory _SysResponseModel.fromJson(Map<String, dynamic> json) =
       _$_SysResponseModel.fromJson;
@@ -496,7 +487,7 @@ abstract class _SysResponseModel implements SysResponseModel {
   @override
   String get country => throw _privateConstructorUsedError;
   @override
-  String get sunrise => throw _privateConstructorUsedError;
+  int get sunrise => throw _privateConstructorUsedError;
   @override
-  String get sunset => throw _privateConstructorUsedError;
+  int get sunset => throw _privateConstructorUsedError;
 }

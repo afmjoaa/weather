@@ -24,6 +24,7 @@ All the dev dependencies used in the project is listed below:
 | [bloc][BLC] |
 | [flutter_bloc][FBLC] |
 | [provider][PV] |
+| [flare_flutter][PV] |
 
 ## License
 
@@ -36,7 +37,9 @@ MIT\
 [SCS]: <https://pub.dev/packages/sleek_circular_slider>
 [RDL]: <https://pub.dev/packages/r_dotted_line_border>
 [FZD]: <https://pub.dev/packages/flutter_zoom_drawer>
+[FA]: <https://pub.dev/packages/freezed_annotation>
 [LG]: <https://pub.dev/packages/logging>
 [BLC]: <https://pub.dev/packages/bloc>
 [FBLC]: <https://pub.dev/packages/flutter_bloc>
 [PV]: <https://pub.dev/packages/provider>
+[FF]: <https://pub.dev/packages/flare_flutter>

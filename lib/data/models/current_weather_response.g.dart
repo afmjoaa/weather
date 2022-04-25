@@ -15,15 +15,15 @@ _$_CurrentWeatherResponse _$$_CurrentWeatherResponseFromJson(
           .toList(),
       json['base'] as String,
       MainResponseModel.fromJson(json['main'] as Map<String, dynamic>),
-      json['visibility'] as String,
+      json['visibility'] as int,
       WindResponseModel.fromJson(json['wind'] as Map<String, dynamic>),
       CloudsResponseModel.fromJson(json['clouds'] as Map<String, dynamic>),
-      json['dt'] as String,
+      json['dt'] as int,
       SysResponseModel.fromJson(json['sys'] as Map<String, dynamic>),
-      json['timezone'] as String,
-      json['id'] as String,
+      json['timezone'] as int,
+      json['id'] as int,
       json['name'] as String,
-      json['cod'] as String,
+      json['cod'] as int,
     );
 
 Map<String, dynamic> _$$_CurrentWeatherResponseToJson(
@@ -47,8 +47,8 @@ Map<String, dynamic> _$$_CurrentWeatherResponseToJson(
 _$_CoordResponseModel _$$_CoordResponseModelFromJson(
         Map<String, dynamic> json) =>
     _$_CoordResponseModel(
-      json['lon'] as String,
-      json['lat'] as String,
+      (json['lon'] as num).toDouble(),
+      (json['lat'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_CoordResponseModelToJson(
@@ -61,7 +61,7 @@ Map<String, dynamic> _$$_CoordResponseModelToJson(
 _$_WeatherResponseModel _$$_WeatherResponseModelFromJson(
         Map<String, dynamic> json) =>
     _$_WeatherResponseModel(
-      json['id'] as String,
+      json['id'] as int,
       json['main'] as String,
       json['description'] as String,
       json['icon'] as String,
@@ -78,14 +78,12 @@ Map<String, dynamic> _$$_WeatherResponseModelToJson(
 
 _$_MainResponseModel _$$_MainResponseModelFromJson(Map<String, dynamic> json) =>
     _$_MainResponseModel(
-      json['temp'] as String,
-      json['feels_like'] as String,
-      json['temp_min'] as String,
-      json['temp_max'] as String,
-      json['pressure'] as String,
-      json['humidity'] as String,
-      json['sea_level'] as String,
-      json['grnd_level'] as String,
+      (json['temp'] as num).toDouble(),
+      (json['feels_like'] as num).toDouble(),
+      (json['temp_min'] as num).toDouble(),
+      (json['temp_max'] as num).toDouble(),
+      (json['pressure'] as num).toDouble(),
+      (json['humidity'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_MainResponseModelToJson(
@@ -97,15 +95,13 @@ Map<String, dynamic> _$$_MainResponseModelToJson(
       'temp_max': instance.temp_max,
       'pressure': instance.pressure,
       'humidity': instance.humidity,
-      'sea_level': instance.sea_level,
-      'grnd_level': instance.grnd_level,
     };
 
 _$_WindResponseModel _$$_WindResponseModelFromJson(Map<String, dynamic> json) =>
     _$_WindResponseModel(
-      json['speed'] as String,
-      json['deg'] as String,
-      json['gust'] as String,
+      (json['speed'] as num).toDouble(),
+      (json['deg'] as num).toDouble(),
+      (json['gust'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$_WindResponseModelToJson(
@@ -119,7 +115,7 @@ Map<String, dynamic> _$$_WindResponseModelToJson(
 _$_CloudsResponseModel _$$_CloudsResponseModelFromJson(
         Map<String, dynamic> json) =>
     _$_CloudsResponseModel(
-      json['all'] as String,
+      json['all'] as int,
     );
 
 Map<String, dynamic> _$$_CloudsResponseModelToJson(
@@ -131,8 +127,8 @@ Map<String, dynamic> _$$_CloudsResponseModelToJson(
 _$_SysResponseModel _$$_SysResponseModelFromJson(Map<String, dynamic> json) =>
     _$_SysResponseModel(
       json['country'] as String,
-      json['sunrise'] as String,
-      json['sunset'] as String,
+      json['sunrise'] as int,
+      json['sunset'] as int,
     );
 
 Map<String, dynamic> _$$_SysResponseModelToJson(_$_SysResponseModel instance) =>
