@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:weather/ui/screens/home/cubit/home_cubit.dart';
 import '../../../../core/sunny_provider.dart';
 
 import '../../shared/loading/loading_widget.dart';
@@ -13,19 +12,16 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final drawerController = ZoomDrawerController();
-  late final HomeCubit _homeCubit;
-
+  late ZoomDrawerController drawerController;
 
   @override
   void initState() {
     super.initState();
-    _homeCubit = HomeCubit();
-    _homeCubit.getCurrentWeather();
+    drawerController = ZoomDrawerController();
   }
 
   @override

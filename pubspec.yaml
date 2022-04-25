@@ -41,6 +41,7 @@ dev_dependencies:
   freezed: ^2.0.2
   hive_generator: ^1.1.0
   path_provider: ^2.0.9
+  geolocator: ^8.2.0
 
 flutter_icons:
   android: true

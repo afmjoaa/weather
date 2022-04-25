@@ -2,11 +2,11 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:weather/core/sunny_provider.dart';
-import 'package:weather/data/base_api_provider.dart';
+import 'package:weather/data/api_provider/base_api_provider.dart';
 import 'package:weather/utility/sunny_texts.dart';
+import 'package:weather/utility/utility.dart';
 
-import 'models/error_response.dart';
+import '../models/error_response.dart';
 
 class SunnyApiProvider extends BaseApiProvider{
 
@@ -24,11 +24,11 @@ class SunnyApiProvider extends BaseApiProvider{
 
   Interceptor getLoadingInterceptor() => InterceptorsWrapper(
     onRequest: (RequestOptions options, RequestInterceptorHandler handler) async {
-      startLoadingAnimation();
+      Utility.startLoadingAnimation();
       handler.next(options);
     },
     onResponse: (Response response, ResponseInterceptorHandler handler) {
-      completeLoadingAnimation();
+      Utility.completeLoadingAnimation();
       handler.next(response); // continue
     },
     onError: (DioError error, ErrorInterceptorHandler handler) async {
@@ -41,23 +41,11 @@ class SunnyApiProvider extends BaseApiProvider{
         errorMessage = await connectionCheck();
       }
 
-      showLoadingFailedError(errorMessage);
+      Utility.showLoadingFailedError(errorMessage);
       handler.next(error);
     },
   );
   //#endregion
-
-  void startLoadingAnimation() {
-    SunnyProvider.loadingCubit.startLoading();
-  }
-
-  void completeLoadingAnimation() {
-    SunnyProvider.loadingCubit.resetLoading();
-  }
-
-  void showLoadingFailedError(String errorMessage) {
-    SunnyProvider.loadingCubit.loadingFailed(errorMessage);
-  }
 
   Future<String> connectionCheck() async {
     try {

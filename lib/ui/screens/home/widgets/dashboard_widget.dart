@@ -1,5 +1,7 @@
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:weather/data/storage/sunny_hive_storage.dart';
+import 'package:weather/ui/screens/home/cubit/home_cubit.dart';
 
 import '../../../../dto/weather_element_dto.dart';
 import '../../../shared/sunny_appbar.dart';
@@ -23,9 +25,19 @@ class DashBoardWidget extends StatefulWidget {
 }
 
 class _DashBoardWidgetState extends State<DashBoardWidget> {
+  late final HomeCubit _homeCubit;
+  late Future<void> _hiveInit;
+
+  @override
+  void initState() {
+    super.initState();
+    _homeCubit = HomeCubit();
+    _hiveInit = SunnyHiveStorage.init();
+    _hiveInit.whenComplete(_homeCubit.getCurrentWeather);
+  }
 
   Future<void> _pullRefresh() async {
-
+    _homeCubit.getCurrentWeather();
   }
 
   @override

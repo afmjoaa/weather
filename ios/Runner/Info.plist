@@ -28,6 +28,10 @@
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+        <string>This app needs access to location to read weather information.</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>This app needs access to location when in the background to read weather information.</string>
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>

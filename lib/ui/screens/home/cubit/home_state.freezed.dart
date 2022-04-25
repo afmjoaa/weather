@@ -19,14 +19,16 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
-    required TResult Function() fetchDataState,
+    required TResult Function(CurrentWeather currentWeather) dataAvailableState,
+    required TResult Function() dataUnavailableState,
   }) =>
       throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
-    TResult Function()? fetchDataState,
+    TResult Function(CurrentWeather currentWeather)? dataAvailableState,
+    TResult Function()? dataUnavailableState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +48,8 @@ class _$HomeInitialState implements HomeInitialState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
-    required TResult Function() fetchDataState,
+    required TResult Function(CurrentWeather currentWeather) dataAvailableState,
+    required TResult Function() dataUnavailableState,
   }) {
     return homeInitialState();
   }
@@ -55,7 +58,8 @@ class _$HomeInitialState implements HomeInitialState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
-    TResult Function()? fetchDataState,
+    TResult Function(CurrentWeather currentWeather)? dataAvailableState,
+    TResult Function()? dataUnavailableState,
     required TResult orElse(),
   }) {
     if (homeInitialState != null) {
@@ -71,37 +75,84 @@ abstract class HomeInitialState implements HomeState {
 
 /// @nodoc
 
-class _$FetchDataState implements FetchDataState {
-  const _$FetchDataState();
+class _$DataAvailableState implements DataAvailableState {
+  const _$DataAvailableState(this.currentWeather);
+
+  @override
+  final CurrentWeather currentWeather;
 
   @override
   String toString() {
-    return 'HomeState.fetchDataState()';
+    return 'HomeState.dataAvailableState(currentWeather: $currentWeather)';
   }
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
-    required TResult Function() fetchDataState,
+    required TResult Function(CurrentWeather currentWeather) dataAvailableState,
+    required TResult Function() dataUnavailableState,
   }) {
-    return fetchDataState();
+    return dataAvailableState(currentWeather);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
-    TResult Function()? fetchDataState,
+    TResult Function(CurrentWeather currentWeather)? dataAvailableState,
+    TResult Function()? dataUnavailableState,
     required TResult orElse(),
   }) {
-    if (fetchDataState != null) {
-      return fetchDataState();
+    if (dataAvailableState != null) {
+      return dataAvailableState(currentWeather);
     }
     return orElse();
   }
 }
 
-abstract class FetchDataState implements HomeState {
-  const factory FetchDataState() = _$FetchDataState;
+abstract class DataAvailableState implements HomeState {
+  const factory DataAvailableState(final CurrentWeather currentWeather) =
+      _$DataAvailableState;
+
+  CurrentWeather get currentWeather => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+
+class _$dataUnavailableState implements dataUnavailableState {
+  const _$dataUnavailableState();
+
+  @override
+  String toString() {
+    return 'HomeState.dataUnavailableState()';
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() homeInitialState,
+    required TResult Function(CurrentWeather currentWeather) dataAvailableState,
+    required TResult Function() dataUnavailableState,
+  }) {
+    return dataUnavailableState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? homeInitialState,
+    TResult Function(CurrentWeather currentWeather)? dataAvailableState,
+    TResult Function()? dataUnavailableState,
+    required TResult orElse(),
+  }) {
+    if (dataUnavailableState != null) {
+      return dataUnavailableState();
+    }
+    return orElse();
+  }
+}
+
+abstract class dataUnavailableState implements HomeState {
+  const factory dataUnavailableState() = _$dataUnavailableState;
 }

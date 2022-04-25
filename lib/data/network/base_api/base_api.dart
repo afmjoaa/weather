@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:weather/data/base_api_provider.dart';
+import 'package:weather/data/api_provider/base_api_provider.dart';
 import 'package:weather/data/models/base_model/base_model.dart';
 
 abstract class BaseApi<TQuery extends BaseModel, TRes extends BaseModel, TErr extends BaseModel> {

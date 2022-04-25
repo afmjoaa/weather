@@ -3,9 +3,9 @@ import 'package:weather/data/models/base_model/base_model.dart';
 import 'package:weather/data/models/current_weather_query_params.dart';
 import 'package:weather/data/models/current_weather_response.dart';
 import 'package:weather/data/models/error_response.dart';
-import 'package:weather/data/sunny_api_provider.dart';
+import 'package:weather/data/api_provider/sunny_api_provider.dart';
 
-import 'base_api.dart';
+import 'base_api/base_api.dart';
 
 class CurrentWeatherApi extends BaseApi<
     CurrentWeatherQueryParams,

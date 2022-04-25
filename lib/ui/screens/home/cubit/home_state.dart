@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:weather/domain/entities/current_weather.dart';
 
 part 'home_state.freezed.dart';
 
@@ -10,6 +11,6 @@ part 'home_state.freezed.dart';
 )
 class HomeState with _$HomeState{
   const factory HomeState.homeInitialState() = HomeInitialState;
-  const factory HomeState.fetchDataState() = FetchDataState;
-
+  const factory HomeState.dataAvailableState(CurrentWeather currentWeather) = DataAvailableState;
+  const factory HomeState.dataUnavailableState() = dataUnavailableState;
 }
