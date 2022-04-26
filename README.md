@@ -21,10 +21,21 @@ All the dev dependencies used in the project is listed below:
 | [flutter_zoom_drawer][FZD] |
 | [logging][LG] |
 | [freezed_annotation][FA] |
+| [json_annotation][JA] |
 | [bloc][BLC] |
 | [flutter_bloc][FBLC] |
 | [provider][PV] |
 | [flare_flutter][PV] |
+| [dio][D] |
+| [hive][H] |
+| [intl][INTL] |
+| [dartz][DTZ] |
+| [get_it][GT] |
+| [cached_network_image][CNI] |
+| [flutter_cache_manager][FCM] |
+| [path_provider][PP] |
+| [geolocator][GL] |
+| [shimmer][SS] |
 
 ## License
 
@@ -43,3 +54,14 @@ MIT\
 [FBLC]: <https://pub.dev/packages/flutter_bloc>
 [PV]: <https://pub.dev/packages/provider>
 [FF]: <https://pub.dev/packages/flare_flutter>
+[D]: <https://pub.dev/packages/dio>
+[H]: <https://pub.dev/packages/hive>
+[INTL]: <https://pub.dev/packages/intl>
+[DTZ]: <https://pub.dev/packages/dartz>
+[GT]: <https://pub.dev/packages/get_it>
+[CNI]: <https://pub.dev/packages/cached_network_image>
+[FCM]: <https://pub.dev/packages/flutter_cache_manager>
+[PP]: <https://pub.dev/packages/path_provider>
+[GL]: <https://pub.dev/packages/geolocator>
+[SS]: <https://pub.dev/packages/shimmer>
+[JA]: <https://pub.dev/packages/json_annotation>

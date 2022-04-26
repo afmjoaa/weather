@@ -2,7 +2,7 @@ import 'package:weather/domain/entities/current_weather.dart';
 import 'package:weather/domain/repositories/current_weather_repository.dart';
 import 'package:weather/dto/location_dto.dart';
 
-import '../base_use_case/base_use_case.dart';
+import 'base_use_case/base_use_case.dart';
 
 class CurrentWeatherUseCase extends BaseUseCase<CurrentWeather?,
     LocationDto> {
