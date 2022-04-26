@@ -88,7 +88,7 @@ class SunriseAndSunsetWidget extends StatelessWidget {
                                 child: Container(
                                   height: 35,
                                   width: 200,
-                                  child: Image.asset('assets/weathers/Sun@2x.png'),
+                                  child: Image.asset('assets/icons/Sun.png'),
                                 ),
                               ),
                               Positioned(

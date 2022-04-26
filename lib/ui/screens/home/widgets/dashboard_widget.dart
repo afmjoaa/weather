@@ -81,7 +81,11 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
     return Column(
       children: [
         CityInfoWidget(date: currentWeather.dt, city: '${currentWeather.name} ${currentWeather.sys.country}',),
-        WeatherInfoWidget(temp: currentWeather.main.temp.toString(), weatherDes: currentWeather.weather[0].description,),
+        WeatherInfoWidget(
+          temp: currentWeather.main.temp.toString(),
+          weatherDes: currentWeather.weather[0].description,
+          iconUrl: 'http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png',
+        ),
         WeatherElementWidget([
           WeatherElementDto('assets/icons/ventos.svg', '${currentWeather.wind.speed} m/s'),
           WeatherElementDto('assets/icons/nuvem.svg', '${currentWeather.clouds.all} %'),
