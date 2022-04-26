@@ -97,4 +97,11 @@ class _DashBoardWidgetState extends State<DashBoardWidget> {
       ],
     );
   }
+
+  @override
+  void dispose() {
+    _homeCubit.close();
+    SunnyHiveStorage.clear();
+    super.dispose();
+  }
 }
