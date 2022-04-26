@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:weather/data/storage/hive_type_ids.dart';
 import 'package:weather/domain/entities/current_weather.dart';
+import 'package:weather/utility/utility.dart';
 
 import 'base_model/base_model.dart';
 
@@ -37,6 +38,8 @@ class CurrentWeatherResponse extends BaseModel<CurrentWeatherResponse> {
   final String name;
   @HiveField(12)
   final int cod;
+  @HiveField(13)
+  final RainResponseModel? rain;
 
   CurrentWeatherResponse(
       this.coord,
@@ -51,7 +54,8 @@ class CurrentWeatherResponse extends BaseModel<CurrentWeatherResponse> {
       this.timezone,
       this.id,
       this.name,
-      this.cod);
+      this.cod,
+      this.rain);
 
   factory CurrentWeatherResponse.fromJson(
           Map<String, dynamic> json) =>
@@ -68,12 +72,14 @@ class CurrentWeatherResponse extends BaseModel<CurrentWeatherResponse> {
       visibility: visibility,
       wind: wind.toEntity(),
       clouds: clouds.toEntity(),
-      dt: dt,
+      dt: Utility.timeStampToDate(dt),
       sys: sys.toEntity(),
       timezone: timezone,
       id: id,
       name: name,
-      cod: cod);
+      cod: cod,
+      rain: rain?.toEntity() ?? Rain(onehr: 00)
+  );
 }
 
 @Freezed(
@@ -169,14 +175,13 @@ class WindResponseModel with _$WindResponseModel {
       adapterName: 'WindResponseModelAdapter')
   const factory WindResponseModel(
     @HiveField(0) double speed,
-    @HiveField(1) double deg,
-    @HiveField(2) double gust,
+    @HiveField(1) double? deg,
   ) = _WindResponseModel;
 
   factory WindResponseModel.fromJson(Map<String, dynamic> json) =>
       _$WindResponseModelFromJson(json);
 
-  Wind toEntity() => Wind(speed: speed, deg: deg, gust: gust);
+  Wind toEntity() => Wind(speed: speed, deg: deg ?? 00);
 }
 
 @Freezed(
@@ -220,5 +225,26 @@ class SysResponseModel with _$SysResponseModel {
   factory SysResponseModel.fromJson(Map<String, dynamic> json) =>
       _$SysResponseModelFromJson(json);
 
-  Sys toEntity() => Sys(country: country, sunrise: sunrise, sunset: sunset);
+  Sys toEntity() => Sys(country: country ?? "Your Location", sunrise: Utility.timeStampToTime(sunrise), sunset: Utility.timeStampToTime(sunset));
+}
+
+@Freezed(
+    copyWith: false,
+    equal: false,
+    toJson: false
+)
+class RainResponseModel with _$RainResponseModel {
+  const RainResponseModel._();
+
+  @HiveType(
+      typeId: HiveTypeIds.rainResponseModel,
+      adapterName: 'RainResponseModelAdapter')
+  const factory RainResponseModel(
+      @JsonKey(name: '1h') @HiveField(0) double onehr,
+      ) = _RainResponseModel;
+
+  factory RainResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$RainResponseModelFromJson(json);
+
+  Rain toEntity() => Rain(onehr: onehr);
 }

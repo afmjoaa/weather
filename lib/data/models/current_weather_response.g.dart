@@ -31,13 +31,14 @@ class CurrentWeatherResponseAdapter
       fields[10] as int,
       fields[11] as String,
       fields[12] as int,
+      fields[13] as RainResponseModel?,
     );
   }
 
   @override
   void write(BinaryWriter writer, CurrentWeatherResponse obj) {
     writer
-      ..writeByte(13)
+      ..writeByte(14)
       ..writeByte(0)
       ..write(obj.coord)
       ..writeByte(1)
@@ -63,7 +64,9 @@ class CurrentWeatherResponseAdapter
       ..writeByte(11)
       ..write(obj.name)
       ..writeByte(12)
-      ..write(obj.cod);
+      ..write(obj.cod)
+      ..writeByte(13)
+      ..write(obj.rain);
   }
 
   @override
@@ -218,21 +221,18 @@ class WindResponseModelAdapter extends TypeAdapter<_$_WindResponseModel> {
     };
     return _$_WindResponseModel(
       fields[0] as double,
-      fields[1] as double,
-      fields[2] as double,
+      fields[1] as double?,
     );
   }
 
   @override
   void write(BinaryWriter writer, _$_WindResponseModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(2)
       ..writeByte(0)
       ..write(obj.speed)
       ..writeByte(1)
-      ..write(obj.deg)
-      ..writeByte(2)
-      ..write(obj.gust);
+      ..write(obj.deg);
   }
 
   @override
@@ -320,6 +320,40 @@ class SysResponseModelAdapter extends TypeAdapter<_$_SysResponseModel> {
           typeId == other.typeId;
 }
 
+class RainResponseModelAdapter extends TypeAdapter<_$_RainResponseModel> {
+  @override
+  final int typeId = 7;
+
+  @override
+  _$_RainResponseModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return _$_RainResponseModel(
+      fields[0] as double,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, _$_RainResponseModel obj) {
+    writer
+      ..writeByte(1)
+      ..writeByte(0)
+      ..write(obj.onehr);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RainResponseModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
@@ -342,6 +376,9 @@ CurrentWeatherResponse _$CurrentWeatherResponseFromJson(
       json['id'] as int,
       json['name'] as String,
       json['cod'] as int,
+      json['rain'] == null
+          ? null
+          : RainResponseModel.fromJson(json['rain'] as Map<String, dynamic>),
     );
 
 _$_CoordResponseModel _$$_CoordResponseModelFromJson(
@@ -373,8 +410,7 @@ _$_MainResponseModel _$$_MainResponseModelFromJson(Map<String, dynamic> json) =>
 _$_WindResponseModel _$$_WindResponseModelFromJson(Map<String, dynamic> json) =>
     _$_WindResponseModel(
       (json['speed'] as num).toDouble(),
-      (json['deg'] as num).toDouble(),
-      (json['gust'] as num).toDouble(),
+      (json['deg'] as num?)?.toDouble(),
     );
 
 _$_CloudsResponseModel _$$_CloudsResponseModelFromJson(
@@ -388,4 +424,9 @@ _$_SysResponseModel _$$_SysResponseModelFromJson(Map<String, dynamic> json) =>
       json['country'] as String?,
       json['sunrise'] as int,
       json['sunset'] as int,
+    );
+
+_$_RainResponseModel _$$_RainResponseModelFromJson(Map<String, dynamic> json) =>
+    _$_RainResponseModel(
+      (json['1h'] as num).toDouble(),
     );

@@ -3,7 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:r_dotted_line_border/r_dotted_line_border.dart';
 
 class SunriseAndSunsetWidget extends StatelessWidget {
-  const SunriseAndSunsetWidget({Key? key}) : super(key: key);
+  final String sunRise;
+  final String sunSet;
+
+  const SunriseAndSunsetWidget({Key? key, required this.sunRise, required this.sunSet}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +42,12 @@ class SunriseAndSunsetWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     right: 5,
                   ),
                   child: Text(
-                    '06:10',
-                    style: TextStyle(
+                    sunRise,
+                    style: const TextStyle(
                       color: Color(0xff171717),
                       fontSize: 12,
                       height: 0,
@@ -98,7 +101,7 @@ class SunriseAndSunsetWidget extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Positioned(
+                              const Positioned(
                                 top: 85,
                                 child: Text(
                                   'sunrise',
@@ -149,7 +152,7 @@ class SunriseAndSunsetWidget extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Positioned(
+                              const Positioned(
                                 bottom: 85,
                                 child: Text(
                                   'sunset',
@@ -167,12 +170,10 @@ class SunriseAndSunsetWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                    left: 5,
-                  ),
+                  margin: const EdgeInsets.only(left: 5,),
                   child: Text(
-                    '18:45',
-                    style: TextStyle(
+                    sunSet,
+                    style: const TextStyle(
                       color: Color(0xff171717),
                       fontSize: 12,
                       height: 0,

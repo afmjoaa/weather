@@ -30,6 +30,7 @@ class SunnyHiveStorage {
     if (!Hive.isAdapterRegistered(HiveTypeIds.windResponseModel)) Hive.registerAdapter(WindResponseModelAdapter());
     if (!Hive.isAdapterRegistered(HiveTypeIds.cloudsResponseModel)) Hive.registerAdapter(CloudsResponseModelAdapter());
     if (!Hive.isAdapterRegistered(HiveTypeIds.sysResponseModel)) Hive.registerAdapter(SysResponseModelAdapter());
+    if (!Hive.isAdapterRegistered(HiveTypeIds.rainResponseModel)) Hive.registerAdapter(RainResponseModelAdapter());
   }
 
   static void clear() async {

@@ -13,6 +13,7 @@ class CurrentWeather {
     required this.id,
     required this.name,
     required this.cod,
+    required this.rain
   });
 
   final Coord coord;
@@ -22,12 +23,13 @@ class CurrentWeather {
   final int visibility;
   final Wind wind;
   final Clouds clouds;
-  final int dt;
+  final String dt;
   final Sys sys;
   final int timezone;
   final int id;
   final String name;
   final int cod;
+  final Rain rain;
 }
 
 class Clouds {
@@ -36,6 +38,14 @@ class Clouds {
   });
 
   final int all;
+}
+
+class Rain {
+  Rain({
+    required this.onehr,
+  });
+
+  final double onehr;
 }
 
 class Coord {
@@ -73,9 +83,9 @@ class Sys {
     required this.sunset,
   });
 
-  final String? country;
-  final int sunrise;
-  final int sunset;
+  final String country;
+  final String sunrise;
+  final String sunset;
 }
 
 class Weather {
@@ -96,10 +106,8 @@ class Wind {
   Wind({
     required this.speed,
     required this.deg,
-    required this.gust,
   });
 
   final double speed;
   final double deg;
-  final double gust;
 }

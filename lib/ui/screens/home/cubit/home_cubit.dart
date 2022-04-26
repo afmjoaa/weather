@@ -18,28 +18,34 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> getCurrentWeather() async {
     Utility.startLoadingAnimation();
     LocationPermission permission = await Geolocator.requestPermission();
+
     if (permission == LocationPermission.unableToDetermine) {
       permission = await Geolocator.checkPermission();
     } else if (permission == LocationPermission.denied ||
         permission == LocationPermission.deniedForever) {
       if (Platform.isAndroid || Platform.isIOS) {
-        await Geolocator.openAppSettings();
+        emit(const DataUnavailableState(DataUnavailableReason.locationPermissionDenied));
+        Utility.completeLoadingAnimation();
       }
-    }
+    } else {
+      bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!isLocationServiceEnabled) {
+        if (Platform.isAndroid || Platform.isIOS) {
+          emit(const DataUnavailableState(DataUnavailableReason.locationDisabled));
+          Utility.completeLoadingAnimation();
+        }
+      } else{
+        Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+        var currentWeather = await CurrentWeatherUseCase(sl.get<CurrentWeatherRepository>())
+            .call(LocationDto(position.latitude, position.longitude));
 
-    bool isLocationServiceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!isLocationServiceEnabled) {
-      if (Platform.isAndroid || Platform.isIOS) {
-        await Geolocator.openLocationSettings();
+        if (currentWeather == null) {
+          emit(const DataUnavailableState(DataUnavailableReason.noInternetAndCache));
+        } else {
+          emit(DataAvailableState(currentWeather));
+        }
+        Log.severe('foofoo $currentWeather, ${position.latitude}, ${position.longitude}');
       }
-    } else if (isLocationServiceEnabled &&
-        (permission == LocationPermission.always || permission == LocationPermission.whileInUse)) {
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-
-      var currentWeather = await CurrentWeatherUseCase(sl.get<CurrentWeatherRepository>())
-              .call(LocationDto(position.latitude, position.longitude));
-
-      Log.severe('foofoo $currentWeather, ${position.latitude}, ${position.longitude}');
     }
   }
 }

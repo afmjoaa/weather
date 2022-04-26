@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 class ComfortLevelWidget extends StatelessWidget {
-  const ComfortLevelWidget({Key? key}) : super(key: key);
+  final double humidity;
+  final double feelsLike;
+  final double pressure;
+
+  const ComfortLevelWidget(
+      {Key? key,
+      required this.humidity,
+      required this.feelsLike,
+      required this.pressure})
+      : super(key: key);
 
   static const List<Color> cores = [
     Color(0xffDACAFF),
@@ -28,11 +37,7 @@ class ComfortLevelWidget extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.only(
-                top: 20,
-                left: 20,
-                right: 20,
-                bottom: 20
-              ),
+                  top: 20, left: 20, right: 20, bottom: 20),
               alignment: Alignment.topLeft,
               child: const Text(
                 'Comfort Level',
@@ -47,7 +52,7 @@ class ComfortLevelWidget extends StatelessWidget {
                   child: SleekCircularSlider(
                     min: 0,
                     max: 100,
-                    initialValue: 72,
+                    initialValue: humidity,
                     appearance: CircularSliderAppearance(
                       animationEnabled: false,
                       customWidths: CustomSliderWidths(
@@ -96,7 +101,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: ' 10°',
+                            text: ' $feelsLike°',
                             style: TextStyle(
                               fontFamily: 'MohrRounded',
                               fontWeight: FontWeight.w400,
@@ -118,7 +123,7 @@ class ComfortLevelWidget extends StatelessWidget {
                       text: TextSpan(
                         children: <TextSpan>[
                           TextSpan(
-                            text: 'UV Index',
+                            text: 'Pressure',
                             style: TextStyle(
                               fontFamily: 'MohrRounded',
                               fontWeight: FontWeight.w400,
@@ -128,7 +133,7 @@ class ComfortLevelWidget extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: ' 0 low',
+                            text: ' $pressure hPa',
                             style: TextStyle(
                               fontFamily: 'MohrRounded',
                               fontWeight: FontWeight.w400,
@@ -144,7 +149,9 @@ class ComfortLevelWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20,)
+            const SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),

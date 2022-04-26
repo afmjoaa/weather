@@ -2,17 +2,14 @@ import 'package:intl/intl.dart';
 import 'package:weather/core/sunny_provider.dart';
 
 class Utility{
-  final _dateFormatter = DateFormat('yyyy-MM-dd');
-  DateTime? fromJsonToDate(String? date) =>
-      date == null ? null : _dateFormatter.parse(date);
-  String? toJsonFromDate(DateTime? date) =>
-      date == null ? null : _dateFormatter.format(date);
 
-  final _timeFormatter = DateFormat(DateFormat.HOUR_MINUTE);
-  DateTime? fromJsonToTime(String? date) =>
-      date == null ? null : _timeFormatter.parse(date);
-  String? toJsonFromTime(DateTime? date) =>
-      date == null ? null : _timeFormatter.format(date);
+  static String timeStampToDate(timeStamp) {
+    return DateFormat('MM/dd/yyyy').format(DateTime.fromMillisecondsSinceEpoch(timeStamp*1000));
+  }
+
+  static String timeStampToTime(timeStamp) {
+    return DateFormat('hh:mm a').format(DateTime.fromMillisecondsSinceEpoch(timeStamp*1000));
+  }
 
   static void startLoadingAnimation() {
     SunnyProvider.loadingCubit.startLoading();

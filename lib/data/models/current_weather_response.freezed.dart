@@ -246,9 +246,7 @@ mixin _$WindResponseModel {
   @HiveField(0)
   double get speed => throw _privateConstructorUsedError;
   @HiveField(1)
-  double get deg => throw _privateConstructorUsedError;
-  @HiveField(2)
-  double get gust => throw _privateConstructorUsedError;
+  double? get deg => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -257,8 +255,7 @@ mixin _$WindResponseModel {
     typeId: HiveTypeIds.windResponseModel,
     adapterName: 'WindResponseModelAdapter')
 class _$_WindResponseModel extends _WindResponseModel {
-  const _$_WindResponseModel(
-      @HiveField(0) this.speed, @HiveField(1) this.deg, @HiveField(2) this.gust)
+  const _$_WindResponseModel(@HiveField(0) this.speed, @HiveField(1) this.deg)
       : super._();
 
   factory _$_WindResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -269,22 +266,18 @@ class _$_WindResponseModel extends _WindResponseModel {
   final double speed;
   @override
   @HiveField(1)
-  final double deg;
-  @override
-  @HiveField(2)
-  final double gust;
+  final double? deg;
 
   @override
   String toString() {
-    return 'WindResponseModel(speed: $speed, deg: $deg, gust: $gust)';
+    return 'WindResponseModel(speed: $speed, deg: $deg)';
   }
 }
 
 abstract class _WindResponseModel extends WindResponseModel {
   const factory _WindResponseModel(
-      @HiveField(0) final double speed,
-      @HiveField(1) final double deg,
-      @HiveField(2) final double gust) = _$_WindResponseModel;
+          @HiveField(0) final double speed, @HiveField(1) final double? deg) =
+      _$_WindResponseModel;
   const _WindResponseModel._() : super._();
 
   factory _WindResponseModel.fromJson(Map<String, dynamic> json) =
@@ -295,10 +288,7 @@ abstract class _WindResponseModel extends WindResponseModel {
   double get speed => throw _privateConstructorUsedError;
   @override
   @HiveField(1)
-  double get deg => throw _privateConstructorUsedError;
-  @override
-  @HiveField(2)
-  double get gust => throw _privateConstructorUsedError;
+  double? get deg => throw _privateConstructorUsedError;
 }
 
 CloudsResponseModel _$CloudsResponseModelFromJson(Map<String, dynamic> json) {
@@ -407,4 +397,53 @@ abstract class _SysResponseModel extends SysResponseModel {
   @override
   @HiveField(2)
   int get sunset => throw _privateConstructorUsedError;
+}
+
+RainResponseModel _$RainResponseModelFromJson(Map<String, dynamic> json) {
+  return _RainResponseModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RainResponseModel {
+  @JsonKey(name: '1h')
+  @HiveField(0)
+  double get onehr => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+@JsonSerializable(createToJson: false)
+@HiveType(
+    typeId: HiveTypeIds.rainResponseModel,
+    adapterName: 'RainResponseModelAdapter')
+class _$_RainResponseModel extends _RainResponseModel {
+  const _$_RainResponseModel(@JsonKey(name: '1h') @HiveField(0) this.onehr)
+      : super._();
+
+  factory _$_RainResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$$_RainResponseModelFromJson(json);
+
+  @override
+  @JsonKey(name: '1h')
+  @HiveField(0)
+  final double onehr;
+
+  @override
+  String toString() {
+    return 'RainResponseModel(onehr: $onehr)';
+  }
+}
+
+abstract class _RainResponseModel extends RainResponseModel {
+  const factory _RainResponseModel(
+          @JsonKey(name: '1h') @HiveField(0) final double onehr) =
+      _$_RainResponseModel;
+  const _RainResponseModel._() : super._();
+
+  factory _RainResponseModel.fromJson(Map<String, dynamic> json) =
+      _$_RainResponseModel.fromJson;
+
+  @override
+  @JsonKey(name: '1h')
+  @HiveField(0)
+  double get onehr => throw _privateConstructorUsedError;
 }

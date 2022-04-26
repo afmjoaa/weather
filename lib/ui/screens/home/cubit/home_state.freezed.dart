@@ -20,7 +20,8 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
     required TResult Function(CurrentWeather currentWeather) dataAvailableState,
-    required TResult Function() dataUnavailableState,
+    required TResult Function(DataUnavailableReason dataUnavailableReason)
+        dataUnavailableState,
   }) =>
       throw _privateConstructorUsedError;
 
@@ -28,7 +29,8 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
     TResult Function(CurrentWeather currentWeather)? dataAvailableState,
-    TResult Function()? dataUnavailableState,
+    TResult Function(DataUnavailableReason dataUnavailableReason)?
+        dataUnavailableState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,7 +51,8 @@ class _$HomeInitialState implements HomeInitialState {
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
     required TResult Function(CurrentWeather currentWeather) dataAvailableState,
-    required TResult Function() dataUnavailableState,
+    required TResult Function(DataUnavailableReason dataUnavailableReason)
+        dataUnavailableState,
   }) {
     return homeInitialState();
   }
@@ -59,7 +62,8 @@ class _$HomeInitialState implements HomeInitialState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
     TResult Function(CurrentWeather currentWeather)? dataAvailableState,
-    TResult Function()? dataUnavailableState,
+    TResult Function(DataUnavailableReason dataUnavailableReason)?
+        dataUnavailableState,
     required TResult orElse(),
   }) {
     if (homeInitialState != null) {
@@ -91,7 +95,8 @@ class _$DataAvailableState implements DataAvailableState {
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
     required TResult Function(CurrentWeather currentWeather) dataAvailableState,
-    required TResult Function() dataUnavailableState,
+    required TResult Function(DataUnavailableReason dataUnavailableReason)
+        dataUnavailableState,
   }) {
     return dataAvailableState(currentWeather);
   }
@@ -101,7 +106,8 @@ class _$DataAvailableState implements DataAvailableState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
     TResult Function(CurrentWeather currentWeather)? dataAvailableState,
-    TResult Function()? dataUnavailableState,
+    TResult Function(DataUnavailableReason dataUnavailableReason)?
+        dataUnavailableState,
     required TResult orElse(),
   }) {
     if (dataAvailableState != null) {
@@ -120,12 +126,15 @@ abstract class DataAvailableState implements HomeState {
 
 /// @nodoc
 
-class _$dataUnavailableState implements dataUnavailableState {
-  const _$dataUnavailableState();
+class _$DataUnavailableState implements DataUnavailableState {
+  const _$DataUnavailableState(this.dataUnavailableReason);
+
+  @override
+  final DataUnavailableReason dataUnavailableReason;
 
   @override
   String toString() {
-    return 'HomeState.dataUnavailableState()';
+    return 'HomeState.dataUnavailableState(dataUnavailableReason: $dataUnavailableReason)';
   }
 
   @override
@@ -133,9 +142,10 @@ class _$dataUnavailableState implements dataUnavailableState {
   TResult when<TResult extends Object?>({
     required TResult Function() homeInitialState,
     required TResult Function(CurrentWeather currentWeather) dataAvailableState,
-    required TResult Function() dataUnavailableState,
+    required TResult Function(DataUnavailableReason dataUnavailableReason)
+        dataUnavailableState,
   }) {
-    return dataUnavailableState();
+    return dataUnavailableState(dataUnavailableReason);
   }
 
   @override
@@ -143,16 +153,22 @@ class _$dataUnavailableState implements dataUnavailableState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? homeInitialState,
     TResult Function(CurrentWeather currentWeather)? dataAvailableState,
-    TResult Function()? dataUnavailableState,
+    TResult Function(DataUnavailableReason dataUnavailableReason)?
+        dataUnavailableState,
     required TResult orElse(),
   }) {
     if (dataUnavailableState != null) {
-      return dataUnavailableState();
+      return dataUnavailableState(dataUnavailableReason);
     }
     return orElse();
   }
 }
 
-abstract class dataUnavailableState implements HomeState {
-  const factory dataUnavailableState() = _$dataUnavailableState;
+abstract class DataUnavailableState implements HomeState {
+  const factory DataUnavailableState(
+          final DataUnavailableReason dataUnavailableReason) =
+      _$DataUnavailableState;
+
+  DataUnavailableReason get dataUnavailableReason =>
+      throw _privateConstructorUsedError;
 }

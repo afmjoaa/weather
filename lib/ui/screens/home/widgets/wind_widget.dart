@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WindWidget extends StatelessWidget {
-  const WindWidget({Key? key}) : super(key: key);
+  final int visibility;
+  final double windDir;
+
+  const WindWidget({Key? key, required this.visibility, required this.windDir}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class WindWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Direction',
@@ -61,7 +64,7 @@ class WindWidget extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: ' North',
+                        text: ' $windDir°',
                         style: TextStyle(
                           fontFamily: 'MohrRounded',
                           fontWeight: FontWeight.w400,
@@ -83,10 +86,10 @@ class WindWidget extends StatelessWidget {
                   color: Color(0xffE4E4EE),
                 ),
                 RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Speed',
+                        text: 'Visibility',
                         style: TextStyle(
                           fontFamily: 'MohrRounded',
                           fontWeight: FontWeight.w400,
@@ -96,7 +99,7 @@ class WindWidget extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: ' 12km/h',
+                        text: ' $visibility m',
                         style: TextStyle(
                           fontFamily: 'MohrRounded',
                           fontWeight: FontWeight.w400,

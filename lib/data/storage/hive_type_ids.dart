@@ -6,4 +6,5 @@ class HiveTypeIds {
   static const windResponseModel = 4;
   static const cloudsResponseModel = 5;
   static const sysResponseModel = 6;
+  static const rainResponseModel = 7;
 }
