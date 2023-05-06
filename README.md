@@ -1,46 +1,66 @@
-# weather
+# Weather App
 **Creator:**  A.F.M. MOHIMENUL JOAA\
 **Description:**  New sample weather flutter project.\
+**Supported Platform:** Android, iOS, Web\
 **UI/UX Link:**  [Weather app UI/UX][UI]
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/afmjoaa/weather)
-
 ## Features
-- Some demo features of the project
+- Material design
+- Clean architecture using [Business Logic Component][BLC]
+- Local data caching using [hive][H]
+- Network image caching using [Cached Network Image][CNI] 
+- Inherited Widget using [provider][PV]
+- App Routing
+- Repository Pattern
+- Flare animation using [Flare Flutter][PV]
+- Proper Error Handling
+- Proper Permission Handling
+- Pull to refresh
+
+## Screenshot
+
+<div style="display: flex;">
+  <img src="screenshot/1.jpg" alt="screen shot 1" width="240" height="520" style="flex: 1; margin-right: 10px; border-radius: 2%;">
+  <img src="screenshot/2.jpg" alt="screen shot 2" width="240" height="520" style="flex: 1; margin-right: 10px; border-radius: 2%;">
+  <img src="screenshot/3.jpg" alt="screen shot 3" width="240" height="520" style="flex: 1; margin-right: 10px; border-radius: 2%;">
+  <img src="screenshot/4.jpg" alt="screen shot 4" width="240" height="520" style="flex: 1; border-radius: 2%;">
+</div>
+
+## Build Requirements
+| SDK     | Version          |
+|---------|------------------|
+| Dart    | [2.18][DART-218] |
+| Flutter | [3.30][FLU-330]  |
 
 ## Dependency
 
-All the dev dependencies used in the project is listed below:
-
-| Dependencies |
-| ------ |
-| [cupertino_icons][CI] |
-| [flutter_svg][FSVG] |
+| Dev Dependencies             |
+|------------------------------|
+| [cupertino_icons][CI]        |
+| [flutter_svg][FSVG]          |
 | [sleek_circular_slider][SCS] |
-| [r_dotted_line_border][RDL] |
-| [flutter_zoom_drawer][FZD] |
-| [logging][LG] |
-| [freezed_annotation][FA] |
-| [json_annotation][JA] |
-| [bloc][BLC] |
-| [flutter_bloc][FBLC] |
-| [provider][PV] |
-| [flare_flutter][PV] |
-| [dio][D] |
-| [hive][H] |
-| [intl][INTL] |
-| [dartz][DTZ] |
-| [get_it][GT] |
-| [cached_network_image][CNI] |
+| [r_dotted_line_border][RDL]  |
+| [flutter_zoom_drawer][FZD]   |
+| [logging][LG]                |
+| [freezed_annotation][FA]     |
+| [json_annotation][JA]        |
+| [bloc][BLC]                  |
+| [flutter_bloc][FBLC]         |
+| [provider][PV]               |
+| [flare_flutter][PV]          |
+| [dio][D]                     |
+| [hive][H]                    |
+| [intl][INTL]                 |
+| [dartz][DTZ]                 |
+| [get_it][GT]                 |
+| [cached_network_image][CNI]  |
 | [flutter_cache_manager][FCM] |
-| [path_provider][PP] |
-| [geolocator][GL] |
-| [shimmer][SS] |
+| [path_provider][PP]          |
+| [geolocator][GL]             |
+| [shimmer][SS]                |
 
 ## License
-
-MIT\
-**Free Software, Hell Yeah!**
+MIT License
 
 [UI]: <https://xd.adobe.com/view/7fd066d5-4767-4148-8fe9-cac42480a635-2a83/grid/>
 [CI]: <https://pub.dev/packages/cupertino_icons>
@@ -65,3 +85,5 @@ MIT\
 [GL]: <https://pub.dev/packages/geolocator>
 [SS]: <https://pub.dev/packages/shimmer>
 [JA]: <https://pub.dev/packages/json_annotation>
+[DART-218]: <https://dart.dev/guides/language/evolution#dart-218>
+[FLU-330]: <https://docs.flutter.dev/release/release-notes/release-notes-3.3.0>
